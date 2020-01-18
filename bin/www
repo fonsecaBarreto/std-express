@@ -1,0 +1,135 @@
+#!/usr/bin/env node
+require("dotenv-safe").config();
+const mongoClient = require("mongodb").MongoClient;
+mongoClient.connect(process.env.MONGO_CONNECTION, { reconnectTries: 60, reconnectInterval: 1000},function(err,conn){
+  if(err) { return console.log(err); }
+
+  console.log(" >  banco de dados conectado com sucesso!");
+  global.db = conn.db(process.env.MONGO_DB);
+  var app = require('../app');
+  var debug = require('debug')('website:server');
+  var http = require('http');
+  var port = normalizePort(process.env.PORT || process.env.npm_package_config_port);
+  app.set('port', port);
+  var server = http.createServer(app);
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+
+var indexController = require("../src/indexController");
+var chatController = require("../src/chatController.js");
+var io = require('socket.io')(server);
+  io.on('connection', function(socket){console.log(`${socket.id} connected`);
+
+    socket.on("admin login", function(){
+      chatController.login(socket.id);
+      socket.broadcast.emit('update', JSON.stringify({admin:chatController.getAdmin()}));    
+    })
+    socket.on("chat init",function(resp){
+      var newClient = JSON.parse(resp); console.log("new Chat inited");
+      chatController.initChat(newClient,socket.id,socket.request.connection.remoteAddress)
+      .then(async answer=>{
+        if(answer == true){
+          newClient.admin = chatController.getAdmin();
+          var answer =  await indexController.find( db.collection('config'),{'elementId':'chat'});
+          var saudacao = { client:socket.id,date:new Date(),sender:"admin",content: "Bem vindo!"} 
+          try{saudacao.content = chatController.getAdmin() != null?answer.result[0].saudacaoOnline:answer.result[0].saudacaoOffline;}catch(err){}
+
+          socket.emit('update', JSON.stringify(newClient)); //send back to self;
+          socket.emit('chat message', JSON.stringify(saudacao)); //send back to self;
+          if(chatController.getAdmin() != null){
+            io.to(chatController.getAdmin()).emit('update', JSON.stringify(newClient));
+            io.to(chatController.getAdmin()).emit('chat message',  JSON.stringify(saudacao));
+          }
+          chatController.uploadMsg(saudacao,socket.id)
+        }
+        
+      })
+    })
+    socket.on("destroy",(clientId)=>{chatController.deleteChat(clientId).then(answer=>{if(answer == true){ socket.emit('update'); }})})
+    //---------------------------------------- chat message.
+    socket.on('chat message', function(resp){
+      var message = JSON.parse(resp);
+      console.log(message.content)
+      var clientId = message.client;
+      socket.emit('chat message', resp); //send back to self;
+      if(message.sender == "admin"){ // <-- if from admin
+        io.to(clientId).emit('chat message', resp);
+      }else{                         //else
+        console.log("admin",chatController.getAdmin())
+        if(chatController.getAdmin() != null){
+          io.to(chatController.getAdmin()).emit('chat message', resp);
+        }
+      }
+      chatController.uploadMsg(message,clientId)
+      
+    });
+    socket.on('disconnect', function(){
+      
+    saveVisit(socket)
+    .then(answer=>{
+      console.log("done: ", answer)
+    })
+     
+   
+  
+      chatController.disconnect(socket.id).then(answer=>{if (answer == true){try{socket.emit('update');}catch(err){}}})
+      if(socket.id == chatController.getAdmin()){chatController.login(null);socket.broadcast.emit('update', JSON.stringify({admin:null}));}
+     
+    });
+  }); 
+function saveVisit(socket){
+  return new Promise (async resolve=>{
+    let visit = {
+      url: "/"+ socket.handshake.headers.referer.split("/")[3],
+      ingress: new Date(socket.handshake.time),
+      leave: new Date(),
+      ip: socket.handshake.address,
+      id: socket.id
+    }
+    try{
+      let collection = db.collection('visits');
+      let filter = visit._id != undefined ? {"id" :ObjectId(visit.id)} : {};
+      if(filter != {}) delete visit._id;
+      let result = await  indexController.upsert(collection,visit,filter); 
+      resolve(result)
+    }catch(err){resolve(0)}
+
+
+  });
+   
+}
+/*  */
+function normalizePort(val) {var port = parseInt(val, 10);if (isNaN(port)) {return val;}if (port >= 0) {return port;}return false;}
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  //debug('Listening on ' + bind);
+}
+
+
+})

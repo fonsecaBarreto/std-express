@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="”canonical”" href="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="title">ADMIN</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/padrao/config.ico">
+    <!-- vendor -->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/project-standard-stylesheet-min.css">
+    <link rel="stylesheet" href="/stylesheets/admins-min.css">
+    
+    <!--  -->
+    <style></style>
+</head>
+
+<body>
+    <div class="view-port">
+        <div id="wrapper">
+            <div class="hRow jus-start aln-center">
+                <div class="" id="sidebar-wrapper">
+                    <!-- retract here -->
+                    <div class="sidebar-header">
+                        <div class="hRow jus-end aln-center">
+                            <div class="vRow aln-start jus-center pl-3"><span class="h5 w-100 hfit m-0 p-0 text-left">ADMIN</span> <span id="clientName" class="p w-100 hfit m-0 p-0 text-left text-muted"><%= overview.title%></span></div>
+                            <button class="_menu-button mx-3"></button>
+                        </div>
+                        <hr class="p-0 m-0">
+                    </div>
+                    <nav id="sidebar-nav">
+                        <div class="vRow jus-start">
+                            <% for(index in pages){%>
+                                <a class="_button" href="/admin<%=pages[index].href %>">
+                                    <div class="hRow jfy-start aln-center"><img src=" <%=pages[index].admin.ico %> " class="mx-3" alt="icone"> <span class="h5"> <%=pages[index].title %></span></div>
+                                </a>
+                                <% }%>
+                        </div>
+                        <!--  -->
+                    </nav>
+                    <div class="sidebar-footer py-2">
+                        <div class="vRow jus-start aln-center w-100 h-100 ">
+
+                            <div class="vRow aln-center jus-center w-100  m-0 p-0 ">
+                                <span class="h2 hfit text-center m-0 p-0">NJORD</span>
+                                <span class="h5 hfit text-center m-0 p-0">Web Development</span>
+                                <span class="h6 hfit text-center m-0 p-0 text-muted mt-1">© 2019</span>
+                            </div>
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="page-content-wrapper" class="container-fluid px-1 ">
+                    <div class="admin-feed p-1 px-sm-2 py-sm-3">
+                        <%- body %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="local-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header m-0 p-0 py-1">
+                    <button type="button" class="close py-3 px-3 mr-1" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <!-- body -->
+                <div class="modal-body p-0"></div>
+                <!-- footer -->
+                <div class="modal-footer px-2 py-2">
+                    <button type="button" class="btn btn-delete mr-auto ml-0"></button>
+                    <button type="button" class="btn btn-secondary cancel-btn" data-dismiss="modal"></button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="img-preview-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content mt-5">
+                
+                <div class="modal-body p-0 bg-dark">
+                    <button type="button" class="close abs-rt mr-3 mt-1" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                    <img src="" class=" w100" alt="">
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+    <script src="/javascripts/admins-min.js"></script>
+   <!--  <script src="/socket.io/socket.io.js"></script> -->
+    <script>  
+     var rootColl = "/" + "<%=self.rootColl%>",
+        host = "<%=overview.url%>",
+        href = "<%=self.href%>";
+        ("<%=self.href%>" != "chat")? load(rootColl):null;
+
+    </script>
+</body>
+
+</html>

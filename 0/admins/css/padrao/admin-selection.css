@@ -1,0 +1,81 @@
+.sl{
+  width: 4vw;
+  height: 4vw;
+  min-width: 98px;
+  min-height: 98px;
+  width: 142px !important;
+  height: 142px !important;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border: solid 1px #ddd;
+  border-radius: 4px;
+}
+.sl-img-VP{
+  margin: 0;padding: 0;
+  height: 0 !important;
+  width: 100%;
+  padding-bottom: 100% !important;
+  overflow: hidden !important;
+  position: relative;
+  box-shadow: inset 0px 0px 8px rgba(0,0,0,.9);
+  border-radius: 4px;
+ 
+}
+.sl-img-VP img{
+  transition: all .078s;
+  object-fit: cover;
+  position: absolute;
+  top: 0;left: 0; right: 0;bottom: 0;
+  margin:auto;
+}
+.sl-img-VP::after{
+  content: "";
+  position: absolute;
+  bottom: 0; top: 0px; left: 0; right: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  background-image: url('/images/padrao/index.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 48px;
+  opacity: 0;
+  transition: opacity .23s;
+}
+/*  */
+.sl-title{
+  padding: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 1em;
+  line-height: .9em;
+  max-height: 2.1em;
+  background-color: rgba(0,0,0,.56);
+  color: white;
+  word-wrap: break-word;
+  display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: clip;
+  text-overflow: ellipsis;
+  text-overflow: "…";
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  opacity: 0;
+  transition: opacity .9s;
+}
+.sl:hover .sl-img-VP::after{
+  content: "";
+  opacity: .45;
+}
+.sl:hover .sl-title{
+  opacity: 1;
+}
+.sl:hover .sl-img-VP img{transform: scale(1.04);}
+.sl:active .sl-img-VP img { transform: scale(1);}
+.bd-warning{
+  box-shadow: 0px 0px 6px red;
+}

@@ -1,0 +1,123 @@
+<% layout('main-layout') -%>
+  <link rel="stylesheet" href="/stylesheets/artigos-stylesheet-min.css">
+  
+    <div id="miolo" class=" my-2 my-md-3">
+        <div class="container p-0">
+            <div class="row m-0 p-0">
+                <!-- left -->
+                <div class="col-sm-12 col-md-8 m-0 p-0">
+                    <div class=" px-1 px-md-2 ">
+                        <div class="p h-header mt-0 d-none d-md-block mb-1"><span class="white-span text-muted alt-breadCrumbs"><%= article.breadCrumbs %></span></div>
+                            <div id="main-feed" class="mb-4 mb-md-5 ">
+                                <div class="vRow p-0 p-md-2 jus-center aln-center">
+                                      <div class="w100  position-relative">
+                                        <div class="vRow">
+                                            <div class="alt-img-VP ">
+                                              <span class="alt-img-bg"
+                                                style="background-image: url(<%= article.img[0].xs.location %>)"
+                                              ></span>
+                                              <img src="<%= article.img[0].lg.location %>" alt="">
+                                            </div>
+                                          <span class="alt-title mt-2 text-center"><%= article.title %></span>
+                                          <div class= "hRow jus-center aln-center p-0 m-0 ">
+                                            <div class="hRow aln-center m-0 p-0 pb-1 hfit">
+                                                <img class="_ico p-1"  src="/images/padrao/bookmark-white.png" alt="">
+                                                <span class="wfit pm mt-1"><%= article.topic %></span>
+                                            </div>
+                                            <div class="hRow jus-end">
+                                                <img class="_ico p-1" src="/images/padrao/calendar.png" alt="">
+                                                <span class="text-center wfit pm mt-1"><%= article.date %></span>
+                                            </div>   
+                                          </div>
+                                        </div>
+
+                                         
+                                          
+
+                                      </div>
+                                      <div class="alt-body mt-4 px-1 px-md-0">
+                                        <%- article.body %> 
+                                     
+                                    </div>
+                                      
+                                        
+                                   
+                                  
+                              </div>  
+
+                                
+                         
+
+                            </div>
+                            <hr class="m-1 ">
+                            <span class="mb-2 mb-md-3 re-title ml-1">Recomendados para você</span>
+                            <div id="re-feed" class="row m-0 p-0">
+                              <div class="col-6 col-sm-3 col-md-3 p-1 m-0">
+
+                                <div thumb class="vRow ">
+                                  <div class="re-img-VP stand-by ">
+                                    <img thumb-image src="/images/2.jpg" alt="" class="">
+                                  </div>
+                                  <a thumb-call href="" class="re-call mt-1 stand-by">0</a>
+  
+                                </div>
+
+                              </div>
+                              <div class="col-6 col-sm-3 col-md-3 p-1 m-0">
+
+                                <div thumb class="vRow ">
+                                  <div class="re-img-VP stand-by ">
+                                    <img thumb-image src="/images/2.jpg" alt="" class="">
+                                  </div>
+                                  <a thumb-call href="" class="re-call mt-1 stand-by">0</a>
+  
+                                </div>
+
+                              </div>
+                              <div class="col-6 col-sm-3 col-md-3 p-1 m-0">
+
+                                <div thumb class="vRow ">
+                                  <div class="re-img-VP stand-by ">
+                                    <img thumb-image src="/images/2.jpg" alt="" class="">
+                                  </div>
+                                  <a thumb-call href="" class="re-call mt-1 stand-by">0</a>
+  
+                                </div>
+
+                              </div>
+                              <div class="col-6 col-sm-3 col-md-3 p-1 m-0">
+
+                                <div thumb class="vRow ">
+                                  <div class="re-img-VP stand-by ">
+                                    <img thumb-image src="/images/2.jpg" alt="" class="">
+                                  </div>
+                                  <a thumb-call href="" class="re-call mt-1 stand-by">0</a>
+  
+                                </div>
+
+                              </div>
+                              
+                              
+                              
+                              
+                            </div>
+                            <div class="vRow mt-3 mt-md-5">
+                              <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="6" data-colorscheme="light" data-order-by="reverse_time"></div>
+                          </div>
+                    </div>
+                </div>
+                <!-- right -->
+                <div class="col-12 col-md-4 m-0 p-0 pl-md-3 pl-lg-4 pt-3 pt-md-0">
+                        <% include /partials/artigos-lateral %>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v4.0&appId=446172715991579&autoLogAppEvents=1"></script>
+    <script >
+      document.querySelector(".fb-comments").setAttribute("data-href",window.location);
+    var topic = "<%- article.topic  %>";
+    </script>
+    <script src="/javascripts/artigos-alternative-script-min.js"></script>

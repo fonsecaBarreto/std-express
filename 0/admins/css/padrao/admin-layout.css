@@ -1,0 +1,145 @@
+
+
+
+* {
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 7px;
+    position: fixed;
+    left: 0
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 12px #eeecec
+}
+::-webkit-scrollbar-thumb {
+    background: #b9bbbb;
+    border-radius: 3px
+}
+.view-port {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden
+}
+#wrapper {
+    background: #b6c8da;
+    height: 100%;
+    position: relative
+}
+#wrapper .hRow {
+    height: 100%
+}
+._button {
+    height: 48px;
+    text-decoration: none;
+    border-bottom: solid 1px #ddd;
+    cursor: pointer
+}
+._button:hover {
+    background: #e4e4e4;
+    text-decoration: none
+}
+._button:active img {
+    transform: scale(.93)
+}
+._button img {
+    height: 24px;
+    width: 24px
+}
+._button span {
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    transition: opacity 1s ease-out
+}
+#page-content-wrapper {
+    background: #f0f8fd;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    overflow: auto
+}
+#sidebar-wrapper {
+    width: 320px;
+    min-width: 320px;
+    background: #f5f3f3;
+    transition: all .12s;
+    box-shadow: 2px 0 9px rgba(0, 0, 0, .12);
+    z-index: 12;
+    position: relative;
+    border: solid 1px #ccc;
+}
+.sidebar-header {
+    height: 86px
+}
+.sidebar-footer {
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd
+}
+.sidebar-footer .njord {
+    width: 32px;
+    height: 32px
+}
+
+.retract {
+    margin-left: -262px
+}
+.retract ._button>.hRow {
+    justify-content: flex-end!important
+}
+.retract ._button>.hRow span {
+    display: none;
+    opacity: 0
+}
+@media only screen and (max-width:992px) {
+    #sidebar-wrapper {
+        width: 320px;
+        min-width: 320px;
+        background: #f5f3f3;
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+    #page-content-wrapper {
+        margin-left: 56px
+    }
+}
+._menu-button {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background-image: url(/images/padrao/menu.png);
+    background-position: center;
+    background-size: cover;
+    margin: 0 8px
+}
+.admin-feed {
+    max-width: 1520px;
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center
+}
+

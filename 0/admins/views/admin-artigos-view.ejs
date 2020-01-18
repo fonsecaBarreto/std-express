@@ -1,0 +1,332 @@
+<% layout('admin-layout') -%>
+
+<div class="row p-0 m-0">
+ 
+  
+  <div class="col-12 col-md-10 col-lg-7 col-xl-8 p-0 mx-auto my-0">
+    
+    <div class="col-12 p-1">
+      <div class="adm-element loading-float" id="blog">
+        <div class="top-bar">
+          <div class="hRow jus-start aln-center py-2">
+             <img  class="s24 ml-3 mr-1" src="/images/padrao/feed.png" alt="">
+             <span class="sfit text-left m-0 p-0 ml-2 h4">BLOG</span>
+             <span class="show-btn mr-2 ml-auto"></span>
+            
+            </div>
+        </div>
+        <div class="inner">
+
+          <div class="VP VP-full-height ">
+            <div class="row m-0 p-0 flow  w100">
+
+          </div>
+        </div>
+          <div class=" hRow jus-end aln-center action-panel">
+            <span action="modal" class="vary-btn plus ml-2 mr-auto"></span>
+            <span class="btn cancel-btn mr-1 d-none"></span>
+            <span class="btn save-btn mr-3 d-none"></span> 
+          </div>
+
+          
+        </div>
+         <!-- modal -->
+         <div modal >
+          <div class="VP">
+            <div class="flow w100 ">
+              <form action=""class="w100" >
+                <div class="row m-0 p-0">
+                  <!--  -->
+                  <label for="title" class="col-12">Titulo
+                    <input class="admin-input" normalize="path" name="title" type="text"></input>
+                  </label>
+
+                  <label for="topic" class="col-12 col-sm-6">Categoria
+                    <input class="admin-input" name="topic" type="text"></input>
+                  </label> 
+                  <label for="date" class="col-12 col-sm-6 pl-sm-0">Data
+                    <input class="admin-input" name="date" type="date"></input>
+                  </label>
+          
+        
+               <label for="body" class="col-12">corpo
+                 <!--  -->
+                  <div class="editControls px-2 hRow jus-start jus-sm-center aln-center ov-auto" >
+                    <div class="sfit d-inline">
+                      <a class=' ic ic-undo' data-role='undo' href='#'></a>
+                      <a class=' ic ic-redo' data-role='redo' href='#'></a>
+                    </div>
+                    <div class="sfit d-inline">
+                      <a class='ic ic-bold' data-role='bold' href='#'></a>
+                      <a class='ic ic-italic' data-role='italic' href='#'></a>
+                      <a class='ic ic-underline' data-role='underline' href='#'></a>
+                      <a class='ic ic-strike' data-role='strikeThrough' href='#'></a>
+                    </div>
+                    <div class="sfit d-inline">
+                      <a class='ic ic-left-alignment' data-role='justifyLeft' href='#'></a>
+                      <a class='ic ic-center-alignment' data-role='justifyCenter' href='#'></a>
+                      <a class='ic ic-right-alignment' data-role='justifyRight' href='#'></i></a>
+                      <a class='ic ic-justify-alignment' data-role='justifyFull' href='#'></a>
+                    </div>
+                    <div class=" sfit d-inline">
+                      <a class=' ic ic-indent' data-role='indent' href='#'></a>
+                      <a class=' ic ic-outdent' data-role='outdent' href='#'></a>
+                    </div>
+                    <div class="sfit d-inline">
+                      <a class='ic ic-list' data-role='insertUnorderedList' href='#'></a>
+                      <a class='ic ic-numbered' data-role='insertOrderedList' href='#'></a>
+                    </div>
+                  </div>
+                  <div name="body" class='admin-editor-input min-h500' style='' spellcheck="false" contenteditable class="" ></div>
+                <!--  -->
+                </label>
+    
+                <label for="imagem" class="col-12">Imagem 
+                  <div class="hRow aln-center">
+                    <div class="img-VP ">
+                      <img class="img-preview" src="/images/padrao/noimage.png" index='0' alt="">
+                    </div>
+                    <input class="img-btn" type="file" name="0">
+                  </div>
+                </label> 
+              
+             </form>
+            
+
+            </div>
+          </div>
+        </div>
+          <!-- thumb -->
+          <div  thumb="col-12 col-sm-6 col-xl-4 p-1 m-0 ">
+            <div draggable="false" class="feed-thumb p-1 ">
+                
+                <div class="hRow jus-center aln-center">
+                  <div class="ft-img-VP ">
+                    <img src="" alt="" class="abs-center"  draggable="false">
+                  </div>
+                  <div class="vRow right ml-2">
+                    <span class="ft-title">Tituasdknasdbasdjasdkasldnkjlansdassdfsdfdsfsdfsdfdsfdsfsdfsdfsdfsdfdsfdsfdsfsddwhere we are</span>
+                    <span class="ft-date date-ic mt-2">26/12/2019</span>
+                    <span class="ft-views eye-ic mt-1">123214 visualizações</span>
+                    <span class="ft-edit text-right wfit px-2 mr-0 mb-0 ml-auto mt-auto">Editar</span>
+                   
+                </div>
+            
+            </div>
+            
+            </div>
+          </div>
+        <!--  -->
+
+
+
+
+  
+      </div>
+    </div>
+    <div class="col-12 p-1">
+      <div class="adm-element loading-float" id="destaques">
+        <div class="top-bar">
+          <div class="hRow jus-start aln-center py-2">
+             <img  class="s24 ml-3 mr-1" src="/images/padrao/shining.png" alt="">
+             <span class="sfit text-left m-0 p-0 ml-2 h4">DESTAQUES</span>
+             <span class="show-btn mr-2 ml-auto"></span>
+            
+            </div>
+        </div>
+        <div class="inner">
+
+          <div class="VP ">
+            <div class=" flow hRow jus-start aln-center minw100">
+         
+            
+        
+          </div>
+        </div>
+          <div class=" hRow jus-end aln-center action-panel">
+            <span action="lock" class="vary-btn pd-lock ml-2 mr-auto d-none"></span>
+            <span class="btn cancel-btn mr-1 "></span>
+            <span class="btn save-btn mr-3"></span> 
+          </div>
+        </div>
+        <div modal >
+          <div class="VP VP-full-height " >
+            <div class="row m-0 p-0 flow  w100 ">
+            
+            </div>
+          </div>
+        </div>
+        <!-- thumb -->
+        <div thumb="p-1  ">
+          <div draggable="false" class="sl vRow m-auto ">
+             
+            <div class="sl-img-VP">
+                <img draggable="false" ord_img src="/images/padrao/noimage.png" alt="" class="">
+            </div> 
+            <span ord_title class="sl-title">Titulo da publicação maneira para fazer um teste maneiro ai, pera so um poquinho ae, sendo ator</span>
+           
+          </div>
+         </div>
+
+  
+      </div>
+
+    </div>
+  
+    
+  </div>
+   
+
+  
+  <div class="col-12 col-md-10 col-lg-5 col-xl-4 p-0 mx-auto my-0 ">
+      <div class="col-12 p-1">
+        <!--  -->
+        <div class="adm-element loading-float" id="statistics">
+          <div class="top-bar">
+            <div class="hRow jus-start aln-center py-2">
+               <img  class="s24 ml-3 mr-1" src="/images/padrao/statistics.png" alt="">
+               <span class="sfit text-left m-0 p-0 ml-2 h4">Estatísticas</span>
+               <span class="show-btn mr-2 ml-auto"></span>
+              
+              </div>
+          </div>
+          <div class="inner ">
+            <div class="VP">
+              <div class="flow w100 p-3 pb-1">
+              
+                <div class="vRow">
+                  <div class="hRow">
+                    <span></span>
+                      <span class="text-muted">Visitas</span>
+                      <span class="text-muted">Horas</span>
+                      <span class="text-muted">T/V</span>
+                  </div>
+                  <hr class="m-2 p-0 ">
+                  <div class="hRow">
+                    <span class="text-muted">Total:</span>
+                    <span id="sttcs-v" class="font-weight-bold">00</span>
+                    <span id="sttcs-h" class="font-weight-bold">00</span>
+                    <span id="sttcs-tv" class="font-weight-bold">00</span>
+                  </div>
+                    <hr class="m-2 p-0">
+                  <div class="hRow"><span class="text-muted">Mês:</span>
+                    <span id="sttcs-vM"class="font-weight-bold">00</span>
+                    <span id="sttcs-hM" class="font-weight-bold">00</span>
+                    <span id="sttcs-tvM" class="font-weight-bold">00</span>
+                  </div>
+                    <hr class="m-2 p-0">
+                  <div class="hRow"><span class="text-muted">Semana:</span>
+                    <span id="sttcs-vW"class="font-weight-bold">00</span>
+                    <span id="sttcs-hW" class="font-weight-bold">00</span>
+                    <span id="sttcs-tvW" class="font-weight-bold">00</span>
+                  </div>
+                    <hr class="m-2 p-0">
+                  <div class="hRow"><span class="text-muted">Hoje:</span>
+                    <span id="sttcs-vD"class="font-weight-bold">00</span>
+                    <span id="sttcs-hD" class="font-weight-bold">00</span>
+                    <span id="sttcs-tvD" class="font-weight-bold">00</span>
+                  </div>
+                    <hr class="m-2 p-0">
+                </div>
+
+               
+             
+            <!--   <label for="" class=" mt-2"> 
+                <img src="/images/grafico-exemplo.png" class="w100 px-4" alt="">
+
+              </label> -->
+               
+  
+              </div>
+            </div>
+            <div class="action-panel hRow jus-end aln-center w100">
+              <a class="text-center hfit text-muted" href="<%= overview.url%>/<%=self.href %>"><%= overview.url%>/<%=self.href %></a>
+              <span action="lock" class="vary-btn pd-lock ml-2 mr-auto  d-none"></span>
+              <span class="btn cancel-btn mr-1  d-none"></span>
+              <span class="btn save-btn mr-3  d-none"></span> 
+            </div>
+  
+            
+          </div>
+    
+        </div>
+        <!--  -->
+      </div>
+      <div class="col-12 p-1">
+        <div class="adm-element loading-float" id="sobre">
+          <div class="top-bar">
+            <div class="hRow jus-start aln-center py-2">
+               <img  class="s24 ml-3 mr-1" src="/images/padrao/info.png" alt="">
+               <span class="sfit text-left m-0 p-0 ml-2 h4">SOBRE</span>
+               <span class="show-btn mr-2 ml-auto"></span>
+              
+              </div>
+          </div>
+          <div class="inner ">
+            <div class="VP block-float">
+              <div class="flow w100 ">
+  
+               <form action=""class="w100" >
+                  <div class="row m-0 p-0">
+                    <!--  -->
+                    <label for="title" class="col-12">Titulo
+                      <input class="admin-input" normalize="path" name="title" type="text"></input>
+                    </label>
+          
+                 <label for="body" class="col-12">corpo
+                   <!--  -->
+                    <div class="editControls px-2 hRow jus-start jus-sm-center aln-center " >
+                      <div class="sfit d-inline">
+                        <a class=' ic ic-undo' data-role='undo' href='#'></a>
+                        <a class=' ic ic-redo' data-role='redo' href='#'></a>
+                      </div>
+                      <div class="sfit d-inline">
+                        <a class='ic ic-bold' data-role='bold' href='#'></a>
+                        <a class='ic ic-italic' data-role='italic' href='#'></a>
+                        <a class='ic ic-underline' data-role='underline' href='#'></a>
+                        <a class='ic ic-strike' data-role='strikeThrough' href='#'></a>
+                      </div>
+                   
+                      <div class=" sfit d-inline">
+                        <a class=' ic ic-indent' data-role='indent' href='#'></a>
+                        <a class=' ic ic-outdent' data-role='outdent' href='#'></a>
+                      </div>
+                      
+                    </div>
+                    <div name="body" class='admin-editor-input ' style='' spellcheck="false" contenteditable class="" ></div>
+                  <!--  -->
+                  </label>
+      
+                  <label for="imagem" class="col-12">
+                    <div class="hRow aln-center">
+                      <div class="img-VP ">
+                        <img class="img-preview" src="/images/padrao/noimage.png" index='0' alt="">
+                      </div>
+                      <input class="img-btn" type="file" name="0">
+                    </div>
+                  </label> 
+             
+  
+                 
+  
+             
+                
+               </form>
+  
+              </div>
+            </div>
+            <div class="action-panel hRow jus-end aln-center w100">
+              <span action="lock" class="vary-btn pd-lock ml-2 mr-auto"></span>
+              <span class="btn cancel-btn mr-1 "></span>
+              <span class="btn save-btn mr-3"></span> 
+            </div>
+  
+            
+          </div>
+    
+        </div>
+      </div>
+    <!--  -->
+  </div>
+
+</div>

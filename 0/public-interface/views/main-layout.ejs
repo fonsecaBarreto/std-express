@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="title"> <%=title%></title>
+    <link rel="shortcut icon" type="image/x-icon" href= "<%=overview.favico%>">
+    <meta name="description" content="<%=overview.description%>"/>
+    <meta name="keywords" content="<%=overview.keywords%>"/>
+    <meta property="og:title" content="<%=overview.title%>"/>
+    <meta property="og:site_name" content="<%=overview.title%>"/>
+    <meta property="og:description" content="<%=overview.description%>"/>
+    <meta property="og:image" content="<%=overview.og.image%>"/>
+    <meta property="og:image:type" content="<%=overview.og.imageType%>"/>
+    <meta property="og:image:width" content="<%=overview.og.imageWidth%>"/>
+    <meta property="og:image:height" content="<%=overview.og.imageHeight%>"/>
+    <!-- vendor -->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/project-standard-stylesheet-min.css">
+    <!-- layout -->
+    <link rel="stylesheet" href="/stylesheets/layout-default-stylesheet-min.css">
+    <link rel="stylesheet" href="/stylesheets/chat-stylesheet-min.css">
+</head>
+
+<body class="">
+   
+    
+    <% include /partials/main-layout-NAVBAR %>
+    <div class="site-container site-padding">
+        <%- body%>
+    </div>
+    <% include /partials/main-layout-FOOTER %>
+    <!-- default -->
+    <script src="/vendor/jquery-3.4.1.min.js" ></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+
+    <script src="/javascripts/layout-script-min.js"></script>
+    <!-- <script defer="defer" src="/socket.io/socket.io.js"></script> -->
+</body>
+
+</html>

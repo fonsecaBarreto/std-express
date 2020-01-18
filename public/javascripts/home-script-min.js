@@ -1,0 +1,1 @@
+"use strict";window.onload=function(){navbarNav.querySelectorAll(".nav-item")[0].classList.add("active")};
