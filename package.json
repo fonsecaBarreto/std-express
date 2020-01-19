@@ -2,18 +2,18 @@
   "name": "website",
   "config": {
     "port": "3000",
-    "title": "Envision",
-    "url": "http://www.canalenvision.website",
+    "title": "std-express",
+    "url": "http://localhost:3000",
     "favico": "/images/padrao/favico.ico",
-    "description": "Visite o site do Canal Envision e descubra as novidades !",
-    "keywords": "canal, canalenvision, Mathews, envision, online, ingles, english, curso, coaching, facil, rapido, fluente",
+    "description": "Visite o site descubra as novidades !",
+    "keywords": "chaves, separadas, por, virgulas",
+    "rootRedirect": "/home",
     "og": {
       "image": "/images/teste3.jpg",
       "imageType": "jpeg",
       "imageWidth": "320",
       "imageHeight": "320"
-    },
-    "rootRedirect": "/home"
+    }
   },
   "version": "1.0.0",
   "private": true,
