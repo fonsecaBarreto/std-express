@@ -1,3 +1,5 @@
+const icons ={"static":"/images/padrao/global.png"}
+
 function PageConfig(title="Titulo",href,coll,view,admin){
   this.title = title;
   this.href = href;
@@ -12,4 +14,4 @@ function PageConfig(title="Titulo",href,coll,view,admin){
     })
   }
 }
-module.exports = PageConfig
+module.exports = {PageConfig,icons}

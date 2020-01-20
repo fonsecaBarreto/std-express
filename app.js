@@ -17,7 +17,7 @@ require('./config/auth')(passport);
 app.use(session({  
   store: new MongoStore({
     db: global.db,
-    ttl: 30 * 60, // = 30 minutos de sessão
+    ttl: 40 * 60, // = 30 minutos de sessão
     collection:'session',
     url:process.env.MONGO_CONNECTION
   }),
@@ -39,9 +39,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/export',express.static(path.resolve(__dirname,'views','partials')));
 /* */
-
-
-var PageConfig = require("./src/models/PageConfig.js")
+var fs = require('fs');
+var pagesJson = JSON.parse(fs.readFileSync('pageManifest.json', 'utf8'));
+var pcModel = require("./src/models/PageConfig.js")
 generalConfig ={
   overview:{
     title: process.env.npm_package_config_title,
@@ -49,24 +49,35 @@ generalConfig ={
     favico:process.env.npm_package_config_favico,
     description:process.env.npm_package_config_description,
     keywords:process.env.npm_package_config_keywords,
+    landingPage:process.env.npm_package_config_landingPage,
     og:{
-      image: process.env.npm_package_config_og_image,
-      imageType:process.env.npm_package_config_og_imageType,
-      imageWidth:process.env.npm_package_config_og_imageWidth ,
-      imageHeight:process.env.npm_package_config_og_imageHeight,
+      image: "/images/teste3.jpg",
+      imageType:"jpeg",
+      imageWidth:"320" ,
+      imageHeight:"320",
     }
   },
-  rootRedirect:process.env.npm_package_config_rootRedirect, // /manutence when in prod 
-  pages:{
-    home: new PageConfig("Home","/home","artigos-contents","home-view",{view:'admin-home-view',ico:"/images/padrao/global.png"}),
-    artigos: new PageConfig("Artigos","/artigos","artigos-contents","home-view",{view:'admin-artigos-view',ico:"/images/padrao/feed.png"})
-  }
 };
+generalConfig.pages = {};
+Object.keys(pagesJson).forEach(key => {
+  var page = pagesJson[key];
+  generalConfig.pages[page.title.toLowerCase()]=new pcModel.PageConfig(page.title,page.href,page.rootColl,page.view,{view:page.admin,ico:pcModel.icons[page.type]})
+})
+console.log(generalConfig.pages)
 /* _routes */
+
+
+
 var index = require('./routes/index.js');
 app.use(index);
 var user = require("./routes/user.js")
 app.use(user)
+
+
+
+
+
+
 
 
 

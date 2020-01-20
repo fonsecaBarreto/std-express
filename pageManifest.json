@@ -1,0 +1,27 @@
+{
+  "incio": {
+    "title": "Home",
+    "href": "/home",
+    "rootColl": "artigos-contents",
+    "view": "home-view",
+    "admin": "admin-home-view",
+    "type": "static"
+  },
+  "sobre": {
+    "title": "Sobre",
+    "href": "/sobre",
+    "rootColl": "sobre-contents",
+    "view": "sobre",
+    "admin": "admin-home-view",
+    "type": "static"
+  },
+  "whatEver": {
+    "title": "okok",
+    "href": "/coco",
+    "rootColl": "sobre-contents",
+    "view": "fezes",
+    "admin": "admin-home-view",
+    "type": "static"
+  }
+
+}

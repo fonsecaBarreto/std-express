@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 require("dotenv-safe").config();
 const mongoClient = require("mongodb").MongoClient;
-mongoClient.connect(process.env.MONGO_CONNECTION, { reconnectTries: 60, reconnectInterval: 1000},function(err,conn){
+
+
+
+mongoClient.connect(process.env.MONGO_CONNECTION, { reconnectTries: 4, reconnectInterval: 560},function(err,conn){
   if(err) { return console.log(err); }
 
   console.log(" >  banco de dados conectado com sucesso!");

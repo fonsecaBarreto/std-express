@@ -7,13 +7,7 @@
     "favico": "/images/padrao/favico.ico",
     "description": "Visite o site descubra as novidades !",
     "keywords": "chaves, separadas, por, virgulas",
-    "rootRedirect": "/home",
-    "og": {
-      "image": "/images/teste3.jpg",
-      "imageType": "jpeg",
-      "imageWidth": "320",
-      "imageHeight": "320"
-    }
+    "landingPage": "/home"
   },
   "version": "1.0.0",
   "private": true,

@@ -3,7 +3,7 @@ start(generalConfig.pages)
 .then((paginas)=>{
   console.log("everything is up to date")
   router.get("/",(req,res)=>{
-    res.redirect(generalConfig.rootRedirect);
+    res.redirect(generalConfig.overview.landingPage);
   })
   Object.keys(paginas).forEach(key=>{
     paginas[key].run(router)
