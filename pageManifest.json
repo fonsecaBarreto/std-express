@@ -1,27 +1,18 @@
 {
-  "incio": {
+  "home": {
     "title": "Home",
     "href": "/home",
-    "rootColl": "artigos-contents",
     "view": "home-view",
     "admin": "admin-home-view",
-    "type": "static"
+    "type": "static",
+    "rootColl": "home-contents"
   },
-  "sobre": {
-    "title": "Sobre",
-    "href": "/sobre",
-    "rootColl": "sobre-contents",
-    "view": "sobre",
-    "admin": "admin-home-view",
-    "type": "static"
-  },
-  "whatEver": {
-    "title": "okok",
-    "href": "/coco",
-    "rootColl": "sobre-contents",
-    "view": "fezes",
-    "admin": "admin-home-view",
-    "type": "static"
+  "blog": {
+    "title": "Blog",
+    "href": "/blog",
+    "view": "blog-view",
+    "admin": "blog-admin-view",
+    "type": "blog",
+    "rootColl": "blog-contents"
   }
-
 }

@@ -61,7 +61,7 @@ generalConfig ={
 generalConfig.pages = {};
 Object.keys(pagesJson).forEach(key => {
   var page = pagesJson[key];
-  generalConfig.pages[page.title.toLowerCase()]=new pcModel.PageConfig(page.title,page.href,page.rootColl,page.view,{view:page.admin,ico:pcModel.icons[page.type]})
+  generalConfig.pages[page.title.toLowerCase()]=new pcModel.PageConfig(page.title,page.href,page.rootColl,page.view,{view:page.admin,ico:pcModel.icons[page.type]},page.type)
 })
 console.log(generalConfig.pages)
 /* _routes */

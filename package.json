@@ -7,7 +7,30 @@
     "favico": "/images/padrao/favico.ico",
     "description": "Visite o site descubra as novidades !",
     "keywords": "chaves, separadas, por, virgulas",
-    "landingPage": "/home"
+    "landingPage": "/home",
+    "pages": {
+      "home": {
+        "title": "Home",
+        "href": "/home",
+        "view": "home-view",
+        "admin": "admin-home-view",
+        "rootColl": "artigos-contents"
+      },
+      "sobre": {
+        "title": "Sobre",
+        "href": "/sobre",
+        "view": "sobre",
+        "admin": "admin-home-view",
+        "rootColl": "sobre-contents"
+      },
+      "okok": {
+        "title": "okok",
+        "href": "/contato",
+        "view": "fezes",
+        "admin": "admin-home-view",
+        "rootColl": "sobre-contents"
+      }
+    }
   },
   "version": "1.0.0",
   "private": true,
