@@ -3,9 +3,11 @@
     "title": "Home",
     "href": "/home",
     "view": "home-view",
-    "admin": "admin-home-view",
+    "admin": "home-admin-view",
     "type": "static",
-    "rootColl": "home-contents"
+    "rootColl": "home-contents",
+    "altColl": "",
+    "altView": ""
   },
   "blog": {
     "title": "Blog",
@@ -13,6 +15,8 @@
     "view": "blog-view",
     "admin": "blog-admin-view",
     "type": "blog",
-    "rootColl": "blog-contents"
+    "rootColl": "blog-contents",
+    "altColl": "blog-posts",
+    "altView": "blog-alt-view"
   }
 }

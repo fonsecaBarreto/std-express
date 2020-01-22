@@ -9,6 +9,39 @@ start(generalConfig.pages)
     paginas[key].run(router)
   })
 })
+
+
+
+
+router.get("/update", authenticationMiddleware(),async (req,res)=>{
+  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>  :: atualizando cached Contents ::   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<' + req.params.page);
+  try{
+    generalConfig.pages = await start(generalConfig.pages)
+    res.json({status:true});
+  }catch(err){res.json({status:false}) }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function start(paginas){
   return new Promise(async resolve=>{
     await  Promise.all(Object.keys(paginas).map(async (key)=>{
@@ -71,5 +104,13 @@ function stringfyImages(res){
     resolve()
   })
 }
+
+function authenticationMiddleware () {  
+  return function (req, res, next) {
+    if (req.isAuthenticated()) {console.log("AUTHENTIFICADO");return next()
+    }res.redirect('/login')
+  }
+}
+
 
 module.exports = router;

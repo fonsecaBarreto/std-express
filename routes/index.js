@@ -4,6 +4,15 @@ var ObjectId = require('mongodb').ObjectID;
 var indexController = require('../src/indexController');
 const mongoClient = require("mongodb").MongoClient;
 
+
+function authenticationMiddleware () {  
+  return function (req, res, next) {
+    if (req.isAuthenticated()) {console.log("AUTHENTIFICADO");return next()
+    }res.redirect('/login')
+  }
+}
+
+
 router.get("/manutence",function(req,res){
   res.render("manutence");
 });
@@ -42,75 +51,6 @@ router.delete("/direct/:coll/:id",authenticationMiddleware(),async(req,res)=>{//
     res.json(result.value != null? {status:true,info:"removed",result:result.value}:{status:false,info:"not found"} );
 }catch(err){res.jons({status:false})}
 })
-/* administrativo */
-function authenticationMiddleware () {  
-  return function (req, res, next) {
-    if (req.isAuthenticated()) {console.log("AUTHENTIFICADO");return next()
-    }res.redirect('/login')
-  }
-}
-router.get('/logout', function(req,res){
-  console.log("> LOGOUT!!")
-  req.logOut();
-  req.session.destroy(function (err) {
-  res.redirect('/'); //Inside a callback… bulletproof!
-  });
-});
-router.get('/login', function(req, res){
-  if(req.query.fail)
-    res.render('adm-login-view', { message: 'Usuário e/ou senha incorretos!' });
-  else
-    res.render('adm-login-view', { message: null});
-});
-router.post('/login',passport.authenticate('local', { successRedirect: '/admin', failureRedirect: '/login?fail=true' }));
-var config ={
-  overview:{
-    name:process.env.APP_TITLE,
-    url:process.env.APP_URL,
-  },
-  pages:{
-    home:{
-      name:"Inicio",
-      href:"home",
-      rootColl:"home-contents",
-      img:"/images/padrao/global.png",
-      body:"admin-home-view"},
-    artigos:{
-      name:"Artigos",
-      href:"artigos",
-      rootColl:"artigos-contents",
-      img:"/images/padrao/feed.png",
-      body:"admin-artigos-view"},
-    chat:{
-        name:"Chat",
-        href:"chat",
-        rootColl:"chats",
-        img:"/images/padrao/chat.png",
-        body:"admin-chat"
-      } 
-    }
-};
-    
-router.get("/admin/:sub?",authenticationMiddleware(),async function(req,res,next){
-  console.log("whaaat???")
-  var sub = req.params.sub
-  if(sub != undefined){
-    var pagina = generalConfig.pages[sub];
-     try{
-      if(pagina != undefined){
-        res.render(pagina.admin.view,
-        {
-          overview: {title,url}=generalConfig.overview,
-          self: pagina,
-          pages: generalConfig.pages
-        }); 
-      }
-    }catch(err){next()}
-  }else{
-    res.redirect(`/admin/home`)
-  }
- 
- });
 
 router.get('/statistics/:resource',authenticationMiddleware(),async function(req,res,next){
   console.log("STATISTICS");
